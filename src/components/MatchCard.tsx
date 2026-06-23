@@ -66,7 +66,7 @@ export default function MatchCard({ match, tz }: { match: Match; tz: Timezone })
             {/* Meta */}
             <div className="flex items-center gap-1.5 mt-1 flex-wrap">
               <span className="text-xs text-slate-500">
-                {hasScore ? "FT" : `${displayTime} ${tz.abbr}${nextDay ? " +1d" : ""}`} · {match.city}
+                {displayTime} {tz.abbr}{nextDay ? " +1d" : ""} · {match.city}
               </span>
               <Badge variant="outline" className={`text-xs px-1.5 py-0 ${stageColors[match.stage]}`}>
                 {match.group ? `Group ${match.group}` : match.stage}
