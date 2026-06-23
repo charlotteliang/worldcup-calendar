@@ -150,7 +150,7 @@ export const MATCHES: Match[] = [
   { id: "i1", date: "2026-06-16", time: "09:00", homeTeam: FRA, awayTeam: SEN, homeScore: 3, awayScore: 1, group: "I", stage: "Group Stage", venue: "MetLife Stadium", city: "East Rutherford" },
   { id: "i2", date: "2026-06-16", time: "12:00", homeTeam: IRQ, awayTeam: NOR, homeScore: 1, awayScore: 4, group: "I", stage: "Group Stage", venue: "Gillette Stadium", city: "Foxborough" },
   { id: "i3", date: "2026-06-22", time: "14:00", homeTeam: FRA, awayTeam: IRQ, homeScore: 3, awayScore: 0, group: "I", stage: "Group Stage", venue: "Lincoln Financial Field", city: "Philadelphia" },
-  { id: "i4", date: "2026-06-22", time: "17:00", homeTeam: NOR, awayTeam: SEN, homeScore: 1, awayScore: 0, group: "I", stage: "Group Stage", venue: "MetLife Stadium", city: "East Rutherford" },
+  { id: "i4", date: "2026-06-22", time: "17:00", homeTeam: NOR, awayTeam: SEN, homeScore: 3, awayScore: 2, group: "I", stage: "Group Stage", venue: "MetLife Stadium", city: "East Rutherford" },
   { id: "i5", date: "2026-06-26", time: "12:00", homeTeam: NOR, awayTeam: FRA, group: "I", stage: "Group Stage", venue: "Gillette Stadium", city: "Foxborough" },
   { id: "i6", date: "2026-06-26", time: "12:00", homeTeam: SEN, awayTeam: IRQ, group: "I", stage: "Group Stage", venue: "BMO Field", city: "Toronto" },
 
@@ -158,7 +158,7 @@ export const MATCHES: Match[] = [
   { id: "j1", date: "2026-06-16", time: "15:00", homeTeam: ARG, awayTeam: ALG, homeScore: 3, awayScore: 0, group: "J", stage: "Group Stage", venue: "Arrowhead Stadium", city: "Kansas City" },
   { id: "j2", date: "2026-06-16", time: "18:00", homeTeam: AUT, awayTeam: JOR, homeScore: 3, awayScore: 1, group: "J", stage: "Group Stage", venue: "Levi's Stadium", city: "Santa Clara" },
   { id: "j3", date: "2026-06-22", time: "10:00", homeTeam: ARG, awayTeam: AUT, homeScore: 2, awayScore: 0, group: "J", stage: "Group Stage", venue: "AT&T Stadium", city: "Arlington" },
-  { id: "j4", date: "2026-06-22", time: "20:00", homeTeam: JOR, awayTeam: ALG, group: "J", stage: "Group Stage", venue: "Levi's Stadium", city: "Santa Clara" },
+  { id: "j4", date: "2026-06-22", time: "20:00", homeTeam: JOR, awayTeam: ALG, homeScore: 1, awayScore: 2, group: "J", stage: "Group Stage", venue: "Levi's Stadium", city: "Santa Clara" },
   { id: "j5", date: "2026-06-27", time: "19:00", homeTeam: ALG, awayTeam: AUT, group: "J", stage: "Group Stage", venue: "Arrowhead Stadium", city: "Kansas City" },
   { id: "j6", date: "2026-06-27", time: "19:00", homeTeam: JOR, awayTeam: ARG, group: "J", stage: "Group Stage", venue: "AT&T Stadium", city: "Arlington" },
 
