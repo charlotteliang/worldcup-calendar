@@ -149,7 +149,7 @@ export const MATCHES: Match[] = [
   // ── GROUP I: France · Senegal · Iraq · Norway ──
   { id: "i1", date: "2026-06-16", time: "09:00", homeTeam: FRA, awayTeam: SEN, homeScore: 3, awayScore: 1, group: "I", stage: "Group Stage", venue: "MetLife Stadium", city: "East Rutherford" },
   { id: "i2", date: "2026-06-16", time: "12:00", homeTeam: IRQ, awayTeam: NOR, homeScore: 1, awayScore: 4, group: "I", stage: "Group Stage", venue: "Gillette Stadium", city: "Foxborough" },
-  { id: "i3", date: "2026-06-22", time: "13:00", homeTeam: FRA, awayTeam: IRQ, homeScore: 3, awayScore: 0, group: "I", stage: "Group Stage", venue: "Lincoln Financial Field", city: "Philadelphia" },
+  { id: "i3", date: "2026-06-22", time: "14:00", homeTeam: FRA, awayTeam: IRQ, homeScore: 3, awayScore: 0, group: "I", stage: "Group Stage", venue: "Lincoln Financial Field", city: "Philadelphia" },
   { id: "i4", date: "2026-06-22", time: "17:00", homeTeam: NOR, awayTeam: SEN, homeScore: 1, awayScore: 0, group: "I", stage: "Group Stage", venue: "MetLife Stadium", city: "East Rutherford" },
   { id: "i5", date: "2026-06-26", time: "12:00", homeTeam: NOR, awayTeam: FRA, group: "I", stage: "Group Stage", venue: "Gillette Stadium", city: "Foxborough" },
   { id: "i6", date: "2026-06-26", time: "12:00", homeTeam: SEN, awayTeam: IRQ, group: "I", stage: "Group Stage", venue: "BMO Field", city: "Toronto" },
