@@ -25,7 +25,7 @@ function ScorePill({ home, away }: { home: number; away: number }) {
   );
 }
 
-export default function MatchCard({ match, tz }: { match: Match; tz: Timezone }) {
+export default function MatchCard({ match, tz, onGroupClick }: { match: Match; tz: Timezone; onGroupClick?: (group: string) => void }) {
   const isTBD = match.homeTeam.code === "TBD" && match.awayTeam.code === "TBD";
   const hasScore = match.homeScore !== undefined && match.awayScore !== undefined;
   const { time: displayTime, nextDay } = convertFromPT(match.time, tz);
@@ -68,9 +68,18 @@ export default function MatchCard({ match, tz }: { match: Match; tz: Timezone })
               <span className="text-xs text-slate-500">
                 {displayTime} {tz.abbr}{nextDay ? " +1d" : ""} · {match.city}
               </span>
-              <Badge variant="outline" className={`text-xs px-1.5 py-0 ${stageColors[match.stage]}`}>
-                {match.group ? `Group ${match.group}` : match.stage}
-              </Badge>
+              {match.group && onGroupClick ? (
+                <button
+                  onClick={() => onGroupClick(match.group!)}
+                  className={`text-xs px-1.5 py-0 rounded border font-medium cursor-pointer hover:opacity-70 transition-opacity ${stageColors[match.stage]}`}
+                >
+                  Group {match.group}
+                </button>
+              ) : (
+                <Badge variant="outline" className={`text-xs px-1.5 py-0 ${stageColors[match.stage]}`}>
+                  {match.group ? `Group ${match.group}` : match.stage}
+                </Badge>
+              )}
             </div>
           </div>
 

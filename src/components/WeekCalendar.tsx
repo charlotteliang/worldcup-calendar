@@ -4,6 +4,7 @@ import { useState, useEffect, useMemo } from "react";
 import { getMatchesForWeek } from "@/data/matches";
 import { TIMEZONES, detectLocalTimezone, type Timezone } from "@/lib/timezone";
 import MatchCard from "@/components/MatchCard";
+import GroupsView from "@/components/GroupsView";
 import { Button } from "@/components/ui/button";
 
 const DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
@@ -42,6 +43,8 @@ function isTournamentActive(weekStart: Date): boolean {
 }
 
 export default function WeekCalendar() {
+  const [activeTab, setActiveTab] = useState<"calendar" | "groups">("calendar");
+  const [activeGroup, setActiveGroup] = useState<string | null>(null);
   const [weekStart, setWeekStart] = useState<Date>(() => getMonday(new Date()));
   const [tz, setTz] = useState<Timezone>(TIMEZONES[0]); // PT default; overridden after mount
   const [todayStr, setTodayStr] = useState(""); // set client-side only to avoid UTC/local mismatch
@@ -79,93 +82,118 @@ export default function WeekCalendar() {
     localStorage.setItem("wc-tz", selected.abbr);
   }
 
+  function handleGroupClick(group: string) {
+    setActiveGroup(group);
+    setActiveTab("groups");
+  }
+
   return (
     <div className="w-full">
-      {/* Controls bar */}
-      <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
-        <div>
-          <h2 className="text-xl font-bold text-slate-900">{weekLabel}</h2>
-          <p className="text-sm text-slate-500">
-            {weekMatches.length === 0
-              ? "No matches this week"
-              : `${weekMatches.length} match${weekMatches.length !== 1 ? "es" : ""} this week`}
-          </p>
-        </div>
-
-        <div className="flex flex-wrap items-center gap-2">
-          {/* Timezone picker */}
-          <select
-            value={tz.abbr}
-            onChange={(e) => {
-              const found = TIMEZONES.find((t) => t.abbr === e.target.value);
-              if (found) handleTzChange(found);
-            }}
-            className="rounded-md border border-slate-200 bg-white px-3 py-1.5 text-sm text-slate-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+      {/* Tab bar */}
+      <div className="flex gap-1 border-b border-slate-200 mb-4">
+        {(["calendar", "groups"] as const).map((tab) => (
+          <button
+            key={tab}
+            onClick={() => setActiveTab(tab)}
+            className={`px-4 py-2 text-sm font-medium capitalize transition-colors border-b-2 -mb-px ${
+              activeTab === tab
+                ? "border-green-600 text-green-700"
+                : "border-transparent text-slate-500 hover:text-slate-700"
+            }`}
           >
-            {TIMEZONES.map((t) => (
-              <option key={t.abbr} value={t.abbr}>
-                {t.label}
-              </option>
-            ))}
-          </select>
-
-          {/* Week nav */}
-          <Button variant="outline" size="sm" onClick={() => setWeekStart(getMonday(new Date()))} className="text-xs">
-            Today
-          </Button>
-          <Button variant="outline" size="sm" onClick={() => setWeekStart((d) => addDays(d, -7))}>←</Button>
-          <Button variant="outline" size="sm" onClick={() => setWeekStart((d) => addDays(d, 7))}>→</Button>
-        </div>
+            {tab === "calendar" ? "Calendar" : "Groups"}
+          </button>
+        ))}
       </div>
 
-      {/* Calendar Grid */}
-      {!isTournamentActive(weekStart) ? (
-        <div className="text-center py-16 text-slate-400">
-          <div className="text-5xl mb-3">⚽</div>
-          <p className="text-lg font-medium text-slate-600">No matches this week</p>
-          <p className="text-sm mt-1">FIFA World Cup 2026 runs June 11 – July 19, 2026</p>
-          <Button
-            variant="outline"
-            size="sm"
-            className="mt-4"
-            onClick={() => setWeekStart(getMonday(new Date("2026-06-11")))}
-          >
-            Jump to Opening Week
-          </Button>
-        </div>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-7 gap-3">
-          {weekDays.map((day, i) => {
-            const dateStr = toISODate(day);
-            const dayMatches = weekMatches.filter((m) => m.date === dateStr).sort((a, b) => a.time.localeCompare(b.time));
-            const isToday = dateStr === todayStr;
+      {activeTab === "groups" && <GroupsView activeGroup={activeGroup} />}
 
-            return (
-              <div key={dateStr} className="flex flex-col min-w-0">
-                <div
-                  className={`text-center py-2 px-1 rounded-lg mb-2 ${
-                    isToday ? "bg-green-600 text-white" : "bg-slate-100 text-slate-600"
-                  }`}
-                >
-                  <div className="text-xs font-semibold uppercase tracking-wide">{DAYS[i]}</div>
-                  <div className={`text-lg font-bold ${isToday ? "text-white" : "text-slate-900"}`}>
-                    {day.getDate()}
+      {activeTab === "calendar" && (
+        <>
+          {/* Controls bar */}
+          <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+            <div>
+              <h2 className="text-xl font-bold text-slate-900">{weekLabel}</h2>
+              <p className="text-sm text-slate-500">
+                {weekMatches.length === 0
+                  ? "No matches this week"
+                  : `${weekMatches.length} match${weekMatches.length !== 1 ? "es" : ""} this week`}
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-2">
+              <select
+                value={tz.abbr}
+                onChange={(e) => {
+                  const found = TIMEZONES.find((t) => t.abbr === e.target.value);
+                  if (found) handleTzChange(found);
+                }}
+                className="rounded-md border border-slate-200 bg-white px-3 py-1.5 text-sm text-slate-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+              >
+                {TIMEZONES.map((t) => (
+                  <option key={t.abbr} value={t.abbr}>
+                    {t.label}
+                  </option>
+                ))}
+              </select>
+              <Button variant="outline" size="sm" onClick={() => setWeekStart(getMonday(new Date()))} className="text-xs">
+                Today
+              </Button>
+              <Button variant="outline" size="sm" onClick={() => setWeekStart((d) => addDays(d, -7))}>←</Button>
+              <Button variant="outline" size="sm" onClick={() => setWeekStart((d) => addDays(d, 7))}>→</Button>
+            </div>
+          </div>
+
+          {/* Calendar Grid */}
+          {!isTournamentActive(weekStart) ? (
+            <div className="text-center py-16 text-slate-400">
+              <div className="text-5xl mb-3">⚽</div>
+              <p className="text-lg font-medium text-slate-600">No matches this week</p>
+              <p className="text-sm mt-1">FIFA World Cup 2026 runs June 11 – July 19, 2026</p>
+              <Button
+                variant="outline"
+                size="sm"
+                className="mt-4"
+                onClick={() => setWeekStart(getMonday(new Date("2026-06-11")))}
+              >
+                Jump to Opening Week
+              </Button>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-7 gap-3">
+              {weekDays.map((day, i) => {
+                const dateStr = toISODate(day);
+                const dayMatches = weekMatches.filter((m) => m.date === dateStr).sort((a, b) => a.time.localeCompare(b.time));
+                const isToday = dateStr === todayStr;
+
+                return (
+                  <div key={dateStr} className="flex flex-col min-w-0">
+                    <div
+                      className={`text-center py-2 px-1 rounded-lg mb-2 ${
+                        isToday ? "bg-green-600 text-white" : "bg-slate-100 text-slate-600"
+                      }`}
+                    >
+                      <div className="text-xs font-semibold uppercase tracking-wide">{DAYS[i]}</div>
+                      <div className={`text-lg font-bold ${isToday ? "text-white" : "text-slate-900"}`}>
+                        {day.getDate()}
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col gap-2">
+                      {dayMatches.length === 0 ? (
+                        <div className="text-center text-xs text-slate-300 py-4">—</div>
+                      ) : (
+                        dayMatches.map((match) => (
+                          <MatchCard key={match.id} match={match} tz={tz} onGroupClick={handleGroupClick} />
+                        ))
+                      )}
+                    </div>
                   </div>
-                </div>
-
-                <div className="flex flex-col gap-2">
-                  {dayMatches.length === 0 ? (
-                    <div className="text-center text-xs text-slate-300 py-4">—</div>
-                  ) : (
-                    dayMatches.map((match) => (
-                      <MatchCard key={match.id} match={match} tz={tz} />
-                    ))
-                  )}
-                </div>
-              </div>
-            );
-          })}
-        </div>
+                );
+              })}
+            </div>
+          )}
+        </>
       )}
     </div>
   );
