@@ -165,7 +165,7 @@ export const MATCHES: Match[] = [
   // ── GROUP K: Portugal · DR Congo · Uzbekistan · Colombia ──
   { id: "k1", date: "2026-06-17", time: "09:00", homeTeam: POR, awayTeam: COD, homeScore: 1, awayScore: 1, group: "K", stage: "Group Stage", venue: "NRG Stadium", city: "Houston" },
   { id: "k2", date: "2026-06-17", time: "12:00", homeTeam: UZB, awayTeam: COL, homeScore: 1, awayScore: 3, group: "K", stage: "Group Stage", venue: "Estadio Azteca", city: "Mexico City" },
-  { id: "k3", date: "2026-06-23", time: "10:00", homeTeam: POR, awayTeam: UZB, homeScore: 1, awayScore: 0, group: "K", stage: "Group Stage", venue: "NRG Stadium", city: "Houston" },
+  { id: "k3", date: "2026-06-23", time: "10:00", homeTeam: POR, awayTeam: UZB, group: "K", stage: "Group Stage", venue: "NRG Stadium", city: "Houston" },
   { id: "k4", date: "2026-06-23", time: "19:00", homeTeam: COL, awayTeam: COD, group: "K", stage: "Group Stage", venue: "Estadio Akron", city: "Guadalajara" },
   { id: "k5", date: "2026-06-27", time: "16:30", homeTeam: COL, awayTeam: POR, group: "K", stage: "Group Stage", venue: "Hard Rock Stadium", city: "Miami" },
   { id: "k6", date: "2026-06-27", time: "16:30", homeTeam: COD, awayTeam: UZB, group: "K", stage: "Group Stage", venue: "Mercedes-Benz Stadium", city: "Atlanta" },
@@ -173,7 +173,7 @@ export const MATCHES: Match[] = [
   // ── GROUP L: England · Croatia · Ghana · Panama ──
   { id: "l1", date: "2026-06-17", time: "15:00", homeTeam: ENG, awayTeam: CRO, homeScore: 4, awayScore: 2, group: "L", stage: "Group Stage", venue: "AT&T Stadium", city: "Arlington" },
   { id: "l2", date: "2026-06-17", time: "18:00", homeTeam: GHA, awayTeam: PAN, homeScore: 1, awayScore: 0, group: "L", stage: "Group Stage", venue: "BMO Field", city: "Toronto" },
-  { id: "l3", date: "2026-06-23", time: "13:00", homeTeam: ENG, awayTeam: GHA, homeScore: 0, awayScore: 1, group: "L", stage: "Group Stage", venue: "Gillette Stadium", city: "Foxborough" },
+  { id: "l3", date: "2026-06-23", time: "13:00", homeTeam: ENG, awayTeam: GHA, group: "L", stage: "Group Stage", venue: "Gillette Stadium", city: "Foxborough" },
   { id: "l4", date: "2026-06-23", time: "16:00", homeTeam: PAN, awayTeam: CRO, group: "L", stage: "Group Stage", venue: "BMO Field", city: "Toronto" },
   { id: "l5", date: "2026-06-27", time: "14:00", homeTeam: PAN, awayTeam: ENG, group: "L", stage: "Group Stage", venue: "MetLife Stadium", city: "East Rutherford" },
   { id: "l6", date: "2026-06-27", time: "14:00", homeTeam: CRO, awayTeam: GHA, group: "L", stage: "Group Stage", venue: "Lincoln Financial Field", city: "Philadelphia" },
