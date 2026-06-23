@@ -134,7 +134,7 @@ export default function WeekCalendar() {
         <div className="grid grid-cols-1 md:grid-cols-7 gap-3">
           {weekDays.map((day, i) => {
             const dateStr = toISODate(day);
-            const dayMatches = weekMatches.filter((m) => m.date === dateStr);
+            const dayMatches = weekMatches.filter((m) => m.date === dateStr).sort((a, b) => a.time.localeCompare(b.time));
             const isToday = dateStr === todayStr;
 
             return (
