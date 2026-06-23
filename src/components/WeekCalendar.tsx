@@ -42,9 +42,13 @@ function isTournamentActive(weekStart: Date): boolean {
 }
 
 export default function WeekCalendar() {
-  const today = new Date();
-  const [weekStart, setWeekStart] = useState<Date>(() => getMonday(today));
+  const [weekStart, setWeekStart] = useState<Date>(() => getMonday(new Date()));
   const [tz, setTz] = useState<Timezone>(TIMEZONES[0]); // PT default; overridden after mount
+  const [todayStr, setTodayStr] = useState(""); // set client-side only to avoid UTC/local mismatch
+
+  useEffect(() => {
+    setTodayStr(toISODate(new Date()));
+  }, []);
 
   // Load saved timezone (or auto-detect) after hydration
   useEffect(() => {
@@ -61,7 +65,6 @@ export default function WeekCalendar() {
     [weekStart]
   );
   const weekMatches = useMemo(() => getMatchesForWeek(weekStart), [weekStart]);
-  const todayStr = toISODate(today);
 
   const weekLabel = (() => {
     const end = addDays(weekStart, 6);
@@ -107,7 +110,7 @@ export default function WeekCalendar() {
           </select>
 
           {/* Week nav */}
-          <Button variant="outline" size="sm" onClick={() => setWeekStart(getMonday(today))} className="text-xs">
+          <Button variant="outline" size="sm" onClick={() => setWeekStart(getMonday(new Date()))} className="text-xs">
             Today
           </Button>
           <Button variant="outline" size="sm" onClick={() => setWeekStart((d) => addDays(d, -7))}>←</Button>
