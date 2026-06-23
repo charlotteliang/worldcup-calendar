@@ -158,7 +158,7 @@ export const MATCHES: Match[] = [
   { id: "j1", date: "2026-06-16", time: "15:00", homeTeam: ARG, awayTeam: ALG, homeScore: 3, awayScore: 0, group: "J", stage: "Group Stage", venue: "Arrowhead Stadium", city: "Kansas City" },
   { id: "j2", date: "2026-06-16", time: "18:00", homeTeam: AUT, awayTeam: JOR, homeScore: 3, awayScore: 1, group: "J", stage: "Group Stage", venue: "Levi's Stadium", city: "Santa Clara" },
   { id: "j3", date: "2026-06-22", time: "10:00", homeTeam: ARG, awayTeam: AUT, homeScore: 2, awayScore: 0, group: "J", stage: "Group Stage", venue: "AT&T Stadium", city: "Arlington" },
-  { id: "j4", date: "2026-06-22", time: "20:00", homeTeam: JOR, awayTeam: ALG, homeScore: 0, awayScore: 0, group: "J", stage: "Group Stage", venue: "Levi's Stadium", city: "Santa Clara" },
+  { id: "j4", date: "2026-06-22", time: "20:00", homeTeam: JOR, awayTeam: ALG, group: "J", stage: "Group Stage", venue: "Levi's Stadium", city: "Santa Clara" },
   { id: "j5", date: "2026-06-27", time: "19:00", homeTeam: ALG, awayTeam: AUT, group: "J", stage: "Group Stage", venue: "Arrowhead Stadium", city: "Kansas City" },
   { id: "j6", date: "2026-06-27", time: "19:00", homeTeam: JOR, awayTeam: ARG, group: "J", stage: "Group Stage", venue: "AT&T Stadium", city: "Arlington" },
 
