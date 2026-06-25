@@ -87,24 +87,24 @@ export const MATCHES: Match[] = [
   { id: "a2", date: "2026-06-11", time: "12:00", homeTeam: KOR, awayTeam: CZE, homeScore: 2, awayScore: 1, group: "A", stage: "Group Stage", venue: "Estadio Akron", city: "Guadalajara" },
   { id: "a3", date: "2026-06-18", time: "09:00", homeTeam: CZE, awayTeam: RSA, homeScore: 1, awayScore: 1, group: "A", stage: "Group Stage", venue: "Mercedes-Benz Stadium", city: "Atlanta" },
   { id: "a4", date: "2026-06-18", time: "12:00", homeTeam: MEX, awayTeam: KOR, homeScore: 1, awayScore: 0, group: "A", stage: "Group Stage", venue: "Estadio Akron", city: "Guadalajara" },
-  { id: "a5", date: "2026-06-24", time: "18:00", homeTeam: CZE, awayTeam: MEX, group: "A", stage: "Group Stage", venue: "Estadio Azteca", city: "Mexico City" },
-  { id: "a6", date: "2026-06-24", time: "18:00", homeTeam: RSA, awayTeam: KOR, group: "A", stage: "Group Stage", venue: "Estadio BBVA", city: "Monterrey" },
+  { id: "a5", date: "2026-06-24", time: "18:00", homeTeam: CZE, awayTeam: MEX, homeScore: 0, awayScore: 3, group: "A", stage: "Group Stage", venue: "Estadio Azteca", city: "Mexico City" },
+  { id: "a6", date: "2026-06-24", time: "18:00", homeTeam: RSA, awayTeam: KOR, homeScore: 1, awayScore: 0, group: "A", stage: "Group Stage", venue: "Estadio BBVA", city: "Monterrey" },
 
   // ── GROUP B: Canada · Bosnia & Herzegovina · Switzerland · Qatar ──
   { id: "b1", date: "2026-06-12", time: "09:00", homeTeam: CAN, awayTeam: BIH, homeScore: 1, awayScore: 1, group: "B", stage: "Group Stage", venue: "BMO Field", city: "Toronto" },
   { id: "b2", date: "2026-06-12", time: "12:00", homeTeam: SUI, awayTeam: QAT, homeScore: 1, awayScore: 1, group: "B", stage: "Group Stage", venue: "Lumen Field", city: "Seattle" },
   { id: "b3", date: "2026-06-18", time: "15:00", homeTeam: SUI, awayTeam: BIH, homeScore: 4, awayScore: 1, group: "B", stage: "Group Stage", venue: "SoFi Stadium", city: "Los Angeles" },
   { id: "b4", date: "2026-06-18", time: "18:00", homeTeam: CAN, awayTeam: QAT, homeScore: 6, awayScore: 0, group: "B", stage: "Group Stage", venue: "BC Place", city: "Vancouver" },
-  { id: "b5", date: "2026-06-24", time: "12:00", homeTeam: SUI, awayTeam: CAN, group: "B", stage: "Group Stage", venue: "BC Place", city: "Vancouver" },
-  { id: "b6", date: "2026-06-24", time: "12:00", homeTeam: BIH, awayTeam: QAT, group: "B", stage: "Group Stage", venue: "Lumen Field", city: "Seattle" },
+  { id: "b5", date: "2026-06-24", time: "12:00", homeTeam: SUI, awayTeam: CAN, homeScore: 2, awayScore: 1, group: "B", stage: "Group Stage", venue: "BC Place", city: "Vancouver" },
+  { id: "b6", date: "2026-06-24", time: "12:00", homeTeam: BIH, awayTeam: QAT, homeScore: 3, awayScore: 1, group: "B", stage: "Group Stage", venue: "Lumen Field", city: "Seattle" },
 
   // ── GROUP C: Brazil · Morocco · Haiti · Scotland ──
   { id: "c1", date: "2026-06-13", time: "09:00", homeTeam: BRA, awayTeam: MAR, homeScore: 1, awayScore: 1, group: "C", stage: "Group Stage", venue: "MetLife Stadium", city: "East Rutherford" },
   { id: "c2", date: "2026-06-13", time: "12:00", homeTeam: HAI, awayTeam: SCO, homeScore: 0, awayScore: 1, group: "C", stage: "Group Stage", venue: "Gillette Stadium", city: "Foxborough" },
   { id: "c3", date: "2026-06-19", time: "09:00", homeTeam: SCO, awayTeam: MAR, homeScore: 0, awayScore: 1, group: "C", stage: "Group Stage", venue: "Gillette Stadium", city: "Foxborough" },
   { id: "c4", date: "2026-06-19", time: "12:00", homeTeam: BRA, awayTeam: HAI, homeScore: 3, awayScore: 0, group: "C", stage: "Group Stage", venue: "Lincoln Financial Field", city: "Philadelphia" },
-  { id: "c5", date: "2026-06-24", time: "15:00", homeTeam: SCO, awayTeam: BRA, group: "C", stage: "Group Stage", venue: "Hard Rock Stadium", city: "Miami" },
-  { id: "c6", date: "2026-06-24", time: "15:00", homeTeam: MAR, awayTeam: HAI, group: "C", stage: "Group Stage", venue: "Mercedes-Benz Stadium", city: "Atlanta" },
+  { id: "c5", date: "2026-06-24", time: "15:00", homeTeam: SCO, awayTeam: BRA, homeScore: 0, awayScore: 3, group: "C", stage: "Group Stage", venue: "Hard Rock Stadium", city: "Miami" },
+  { id: "c6", date: "2026-06-24", time: "15:00", homeTeam: MAR, awayTeam: HAI, homeScore: 4, awayScore: 2, group: "C", stage: "Group Stage", venue: "Mercedes-Benz Stadium", city: "Atlanta" },
 
   // ── GROUP D: United States · Paraguay · Australia · Türkiye ──
   { id: "d1", date: "2026-06-12", time: "15:00", homeTeam: USA, awayTeam: PAR, homeScore: 4, awayScore: 1, group: "D", stage: "Group Stage", venue: "SoFi Stadium", city: "Los Angeles" },
@@ -180,11 +180,11 @@ export const MATCHES: Match[] = [
 
   // ── ROUND OF 32 ── (✅ = confirmed qualifier)
   // Jun 28
-  { id: "r32-1",  date: "2026-06-28", time: "12:00", homeTeam: { name: "2nd Group A", flag: "🏳️", code: "TBD" }, awayTeam: { name: "2nd Group B", flag: "🏳️", code: "TBD" }, stage: "Round of 32", venue: "SoFi Stadium", city: "Los Angeles" },
+  { id: "r32-1",  date: "2026-06-28", time: "12:00", homeTeam: RSA, awayTeam: CAN, stage: "Round of 32", venue: "SoFi Stadium", city: "Los Angeles" },
   // Jun 29
-  { id: "r32-2",  date: "2026-06-29", time: "10:00", homeTeam: { name: "1st Group C", flag: "🏳️", code: "TBD" }, awayTeam: { name: "2nd Group F", flag: "🏳️", code: "TBD" }, stage: "Round of 32", venue: "NRG Stadium", city: "Houston" },
+  { id: "r32-2",  date: "2026-06-29", time: "10:00", homeTeam: BRA, awayTeam: { name: "2nd Group F", flag: "🏳️", code: "TBD" }, stage: "Round of 32", venue: "NRG Stadium", city: "Houston" },
   { id: "r32-3",  date: "2026-06-29", time: "13:30", homeTeam: GER, awayTeam: { name: "3rd (A/B/C/D/F)", flag: "🏳️", code: "TBD" }, stage: "Round of 32", venue: "Gillette Stadium", city: "Foxborough" },
-  { id: "r32-4",  date: "2026-06-29", time: "18:00", homeTeam: { name: "1st Group F", flag: "🏳️", code: "TBD" }, awayTeam: { name: "2nd Group C", flag: "🏳️", code: "TBD" }, stage: "Round of 32", venue: "Estadio BBVA", city: "Monterrey" },
+  { id: "r32-4",  date: "2026-06-29", time: "18:00", homeTeam: { name: "1st Group F", flag: "🏳️", code: "TBD" }, awayTeam: MAR, stage: "Round of 32", venue: "Estadio BBVA", city: "Monterrey" },
   // Jun 30
   { id: "r32-5",  date: "2026-06-30", time: "10:00", homeTeam: { name: "2nd Group E", flag: "🏳️", code: "TBD" }, awayTeam: { name: "2nd Group I", flag: "🏳️", code: "TBD" }, stage: "Round of 32", venue: "AT&T Stadium", city: "Arlington" },
   { id: "r32-6",  date: "2026-06-30", time: "14:00", homeTeam: { name: "1st Group I", flag: "🏳️", code: "TBD" }, awayTeam: { name: "3rd (C/D/F/G/H)", flag: "🏳️", code: "TBD" }, stage: "Round of 32", venue: "MetLife Stadium", city: "East Rutherford" },
@@ -196,7 +196,7 @@ export const MATCHES: Match[] = [
   // Jul 2
   { id: "r32-11", date: "2026-07-02", time: "12:00", homeTeam: { name: "1st Group H", flag: "🏳️", code: "TBD" }, awayTeam: { name: "2nd Group J", flag: "🏳️", code: "TBD" }, stage: "Round of 32", venue: "SoFi Stadium", city: "Los Angeles" },
   { id: "r32-12", date: "2026-07-02", time: "16:00", homeTeam: { name: "2nd Group K", flag: "🏳️", code: "TBD" }, awayTeam: { name: "2nd Group L", flag: "🏳️", code: "TBD" }, stage: "Round of 32", venue: "BMO Field", city: "Toronto" },
-  { id: "r32-13", date: "2026-07-02", time: "20:00", homeTeam: { name: "1st Group B", flag: "🏳️", code: "TBD" }, awayTeam: { name: "3rd (E/F/G/I/J)", flag: "🏳️", code: "TBD" }, stage: "Round of 32", venue: "BC Place", city: "Vancouver" },
+  { id: "r32-13", date: "2026-07-02", time: "20:00", homeTeam: SUI, awayTeam: { name: "3rd (E/F/G/I/J)", flag: "🏳️", code: "TBD" }, stage: "Round of 32", venue: "BC Place", city: "Vancouver" },
   // Jul 3
   { id: "r32-14", date: "2026-07-03", time: "11:00", homeTeam: { name: "2nd Group D", flag: "🏳️", code: "TBD" }, awayTeam: { name: "2nd Group G", flag: "🏳️", code: "TBD" }, stage: "Round of 32", venue: "AT&T Stadium", city: "Arlington" },
   { id: "r32-15", date: "2026-07-03", time: "15:00", homeTeam: ARG, awayTeam: { name: "2nd Group H", flag: "🏳️", code: "TBD" }, stage: "Round of 32", venue: "Hard Rock Stadium", city: "Miami" },
