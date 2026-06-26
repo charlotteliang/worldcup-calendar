@@ -183,24 +183,24 @@ export const MATCHES: Match[] = [
   { id: "r32-1",  date: "2026-06-28", time: "12:00", homeTeam: RSA, awayTeam: CAN, stage: "Round of 32", venue: "SoFi Stadium", city: "Los Angeles" },
   // Jun 29
   { id: "r32-2",  date: "2026-06-29", time: "10:00", homeTeam: BRA, awayTeam: JPN, stage: "Round of 32", venue: "NRG Stadium", city: "Houston" },
-  { id: "r32-3",  date: "2026-06-29", time: "13:30", homeTeam: GER, awayTeam: { name: "3rd (A/B/C/D/F)", flag: "🏳️", code: "TBD" }, stage: "Round of 32", venue: "Gillette Stadium", city: "Foxborough" },
+  { id: "r32-3",  date: "2026-06-29", time: "13:30", homeTeam: GER, awayTeam: TBD, stage: "Round of 32", venue: "Gillette Stadium", city: "Foxborough" },
   { id: "r32-4",  date: "2026-06-29", time: "18:00", homeTeam: NED, awayTeam: MAR, stage: "Round of 32", venue: "Estadio BBVA", city: "Monterrey" },
   // Jun 30
-  { id: "r32-5",  date: "2026-06-30", time: "10:00", homeTeam: CIV, awayTeam: { name: "2nd Group I", flag: "🏳️", code: "TBD" }, stage: "Round of 32", venue: "AT&T Stadium", city: "Arlington" },
-  { id: "r32-6",  date: "2026-06-30", time: "14:00", homeTeam: { name: "1st Group I", flag: "🏳️", code: "TBD" }, awayTeam: { name: "3rd (C/D/F/G/H)", flag: "🏳️", code: "TBD" }, stage: "Round of 32", venue: "MetLife Stadium", city: "East Rutherford" },
-  { id: "r32-7",  date: "2026-06-30", time: "18:00", homeTeam: MEX, awayTeam: { name: "3rd (C/E/F/H/I)", flag: "🏳️", code: "TBD" }, stage: "Round of 32", venue: "Estadio Azteca", city: "Mexico City" },
+  { id: "r32-5",  date: "2026-06-30", time: "10:00", homeTeam: CIV, awayTeam: TBD, stage: "Round of 32", venue: "AT&T Stadium", city: "Arlington" },
+  { id: "r32-6",  date: "2026-06-30", time: "14:00", homeTeam: TBD, awayTeam: TBD, stage: "Round of 32", venue: "MetLife Stadium", city: "East Rutherford" },
+  { id: "r32-7",  date: "2026-06-30", time: "18:00", homeTeam: MEX, awayTeam: TBD, stage: "Round of 32", venue: "Estadio Azteca", city: "Mexico City" },
   // Jul 1
-  { id: "r32-8",  date: "2026-07-01", time: "09:00", homeTeam: { name: "1st Group L", flag: "🏳️", code: "TBD" }, awayTeam: { name: "3rd (E/H/I/J/K)", flag: "🏳️", code: "TBD" }, stage: "Round of 32", venue: "Mercedes-Benz Stadium", city: "Atlanta" },
-  { id: "r32-9",  date: "2026-07-01", time: "13:00", homeTeam: { name: "1st Group G", flag: "🏳️", code: "TBD" }, awayTeam: { name: "3rd (A/E/H/I/J)", flag: "🏳️", code: "TBD" }, stage: "Round of 32", venue: "Lumen Field", city: "Seattle" },
-  { id: "r32-10", date: "2026-07-01", time: "17:00", homeTeam: USA, awayTeam: { name: "3rd (B/E/F/I/J)", flag: "🏳️", code: "TBD" }, stage: "Round of 32", venue: "Levi's Stadium", city: "Santa Clara" },
+  { id: "r32-8",  date: "2026-07-01", time: "09:00", homeTeam: TBD, awayTeam: TBD, stage: "Round of 32", venue: "Mercedes-Benz Stadium", city: "Atlanta" },
+  { id: "r32-9",  date: "2026-07-01", time: "13:00", homeTeam: TBD, awayTeam: TBD, stage: "Round of 32", venue: "Lumen Field", city: "Seattle" },
+  { id: "r32-10", date: "2026-07-01", time: "17:00", homeTeam: USA, awayTeam: BIH, stage: "Round of 32", venue: "Levi's Stadium", city: "Santa Clara" },
   // Jul 2
-  { id: "r32-11", date: "2026-07-02", time: "12:00", homeTeam: { name: "1st Group H", flag: "🏳️", code: "TBD" }, awayTeam: { name: "2nd Group J", flag: "🏳️", code: "TBD" }, stage: "Round of 32", venue: "SoFi Stadium", city: "Los Angeles" },
-  { id: "r32-12", date: "2026-07-02", time: "16:00", homeTeam: { name: "2nd Group K", flag: "🏳️", code: "TBD" }, awayTeam: { name: "2nd Group L", flag: "🏳️", code: "TBD" }, stage: "Round of 32", venue: "BMO Field", city: "Toronto" },
-  { id: "r32-13", date: "2026-07-02", time: "20:00", homeTeam: SUI, awayTeam: { name: "3rd (E/F/G/I/J)", flag: "🏳️", code: "TBD" }, stage: "Round of 32", venue: "BC Place", city: "Vancouver" },
+  { id: "r32-11", date: "2026-07-02", time: "12:00", homeTeam: TBD, awayTeam: TBD, stage: "Round of 32", venue: "SoFi Stadium", city: "Los Angeles" },
+  { id: "r32-12", date: "2026-07-02", time: "16:00", homeTeam: TBD, awayTeam: TBD, stage: "Round of 32", venue: "BMO Field", city: "Toronto" },
+  { id: "r32-13", date: "2026-07-02", time: "20:00", homeTeam: SUI, awayTeam: TBD, stage: "Round of 32", venue: "BC Place", city: "Vancouver" },
   // Jul 3
-  { id: "r32-14", date: "2026-07-03", time: "11:00", homeTeam: AUS, awayTeam: { name: "2nd Group G", flag: "🏳️", code: "TBD" }, stage: "Round of 32", venue: "AT&T Stadium", city: "Arlington" },
-  { id: "r32-15", date: "2026-07-03", time: "15:00", homeTeam: ARG, awayTeam: { name: "2nd Group H", flag: "🏳️", code: "TBD" }, stage: "Round of 32", venue: "Hard Rock Stadium", city: "Miami" },
-  { id: "r32-16", date: "2026-07-03", time: "18:30", homeTeam: { name: "1st Group K", flag: "🏳️", code: "TBD" }, awayTeam: { name: "3rd (D/E/I/J/L)", flag: "🏳️", code: "TBD" }, stage: "Round of 32", venue: "Arrowhead Stadium", city: "Kansas City" },
+  { id: "r32-14", date: "2026-07-03", time: "11:00", homeTeam: AUS, awayTeam: TBD, stage: "Round of 32", venue: "AT&T Stadium", city: "Arlington" },
+  { id: "r32-15", date: "2026-07-03", time: "15:00", homeTeam: ARG, awayTeam: TBD, stage: "Round of 32", venue: "Hard Rock Stadium", city: "Miami" },
+  { id: "r32-16", date: "2026-07-03", time: "18:30", homeTeam: TBD, awayTeam: TBD, stage: "Round of 32", venue: "Arrowhead Stadium", city: "Kansas City" },
 
   // ── ROUND OF 16 ──
   { id: "r16-1", date: "2026-07-07", time: "12:00", homeTeam: TBD, awayTeam: TBD, stage: "Round of 16", venue: "TBD", city: "TBD" },
