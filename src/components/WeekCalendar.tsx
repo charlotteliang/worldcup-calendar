@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect, useMemo } from "react";
-import { getMatchesForWeek } from "@/data/matches";
 import { TIMEZONES, detectLocalTimezone, type Timezone } from "@/lib/timezone";
+import { useMatches } from "@/lib/useMatches";
 import MatchCard from "@/components/MatchCard";
 import GroupsView from "@/components/GroupsView";
 import { Button } from "@/components/ui/button";
@@ -43,6 +43,7 @@ function isTournamentActive(weekStart: Date): boolean {
 }
 
 export default function WeekCalendar() {
+  const { matches, loading } = useMatches();
   const [activeTab, setActiveTab] = useState<"calendar" | "groups">("calendar");
   const [activeGroup, setActiveGroup] = useState<string | null>(null);
   const [weekStart, setWeekStart] = useState<Date>(() => getMonday(new Date()));
@@ -67,7 +68,11 @@ export default function WeekCalendar() {
     () => Array.from({ length: 7 }, (_, i) => addDays(weekStart, i)),
     [weekStart]
   );
-  const weekMatches = useMemo(() => getMatchesForWeek(weekStart), [weekStart]);
+  const weekMatches = useMemo(() => {
+    const start = toISODate(weekStart);
+    const end = toISODate(addDays(weekStart, 6));
+    return matches.filter((m) => m.date >= start && m.date <= end);
+  }, [matches, weekStart]);
 
   const weekLabel = (() => {
     const end = addDays(weekStart, 6);
@@ -99,6 +104,10 @@ export default function WeekCalendar() {
     setActiveGroup(group);
     setActiveTab("groups");
     history.pushState({ tab: "groups", group }, "");
+  }
+
+  if (loading) {
+    return <div className="text-center py-16 text-slate-400">Loading matches...</div>;
   }
 
   return (
