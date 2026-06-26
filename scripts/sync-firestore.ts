@@ -1,13 +1,11 @@
-import { initializeApp, cert, getApps } from "firebase-admin/app";
+import { initializeApp, cert } from "firebase-admin/app";
 import { getFirestore } from "firebase-admin/firestore";
 import { MATCHES } from "../src/data/matches";
 import * as fs from "fs";
 
-// Support key via file path or base64 env var
 let serviceAccount: object;
 if (process.env.FIREBASE_SERVICE_ACCOUNT_BASE64) {
-  const json = Buffer.from(process.env.FIREBASE_SERVICE_ACCOUNT_BASE64, "base64").toString("utf8");
-  serviceAccount = JSON.parse(json);
+  serviceAccount = JSON.parse(Buffer.from(process.env.FIREBASE_SERVICE_ACCOUNT_BASE64, "base64").toString("utf8"));
 } else if (fs.existsSync("service-account-key.json")) {
   serviceAccount = JSON.parse(fs.readFileSync("service-account-key.json", "utf8"));
 } else {
@@ -15,20 +13,19 @@ if (process.env.FIREBASE_SERVICE_ACCOUNT_BASE64) {
   process.exit(1);
 }
 
-if (!getApps().length) {
-  initializeApp({ credential: cert(serviceAccount as Parameters<typeof cert>[0]), projectId: "wc2026-calendar-app" });
-}
+initializeApp({ credential: cert(serviceAccount as Parameters<typeof cert>[0]) });
 const db = getFirestore();
 
 async function sync() {
   const batch = db.batch();
   for (const match of MATCHES) {
-    const ref = db.collection("matches").doc(match.id);
-    batch.set(ref, match, { merge: true });
+    batch.set(db.collection("matches").doc(match.id), match);
   }
   await batch.commit();
   console.log(`Synced ${MATCHES.length} matches to Firestore.`);
-  process.exit(0);
 }
 
-sync();
+sync().catch((err) => {
+  console.error("Firestore sync failed:", err);
+  process.exit(1);
+});
