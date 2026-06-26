@@ -82,9 +82,23 @@ export default function WeekCalendar() {
     localStorage.setItem("wc-tz", selected.abbr);
   }
 
+  useEffect(() => {
+    function handlePopState(e: PopStateEvent) {
+      if (e.state?.tab === "groups") {
+        setActiveTab("groups");
+        setActiveGroup(e.state.group ?? null);
+      } else {
+        setActiveTab("calendar");
+      }
+    }
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, []);
+
   function handleGroupClick(group: string) {
     setActiveGroup(group);
     setActiveTab("groups");
+    history.pushState({ tab: "groups", group }, "");
   }
 
   return (

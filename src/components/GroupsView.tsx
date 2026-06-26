@@ -17,7 +17,7 @@ function GroupCard({ group, isActive }: { group: string; isActive: boolean }) {
 
   return (
     <div ref={ref} id={`group-${group}`}>
-      <Card className={`border transition-shadow ${isActive ? "border-green-500 shadow-md" : "border-slate-200"}`}>
+      <Card className={`transition-shadow ${isActive ? "border-4 border-green-700 shadow-md" : "border border-slate-200"}`}>
         <CardHeader className="py-2.5 px-4 bg-slate-50 rounded-t-lg">
           <CardTitle className="text-sm font-bold text-slate-700 tracking-wide">Group {group}</CardTitle>
         </CardHeader>

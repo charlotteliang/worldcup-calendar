@@ -46,19 +46,18 @@ export default function MatchCard({ match, tz, onGroupClick }: { match: Match; t
   return (
     <Card className="hover:shadow-md transition-shadow border border-slate-200">
       <CardContent className="p-3">
-        <div className="flex items-center justify-between gap-2">
+        <div className="flex items-center gap-2">
           <div className="flex-1 min-w-0">
             {/* Home team */}
             <div className="flex items-center gap-1.5">
-              <span className="text-lg leading-none">{match.homeTeam.flag}</span>
+              <span className="text-lg leading-none shrink-0">{match.homeTeam.flag}</span>
               <span className={`text-sm font-semibold truncate ${hasScore && match.homeScore! > match.awayScore! ? "text-green-700" : "text-slate-900"}`}>
                 {match.homeTeam.name}
               </span>
-              {hasScore && <ScorePill home={match.homeScore!} away={match.awayScore!} />}
             </div>
             {/* Away team */}
             <div className="flex items-center gap-1.5 mt-0.5">
-              <span className="text-lg leading-none">{match.awayTeam.flag}</span>
+              <span className="text-lg leading-none shrink-0">{match.awayTeam.flag}</span>
               <span className={`text-sm font-semibold truncate ${hasScore && match.awayScore! > match.homeScore! ? "text-green-700" : "text-slate-900"}`}>
                 {match.awayTeam.name}
               </span>
@@ -80,20 +79,22 @@ export default function MatchCard({ match, tz, onGroupClick }: { match: Match; t
                   {match.group ? `Group ${match.group}` : match.stage}
                 </Badge>
               )}
+              {hasScore
+                ? <ScorePill home={match.homeScore!} away={match.awayScore!} />
+                : (
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={() => window.open(gcalUrl, "_blank", "noopener,noreferrer")}
+                    className="text-xs h-5 px-1.5 py-0 text-green-700 border-green-300 hover:bg-green-50 hover:border-green-400"
+                    title="Add to Google Calendar"
+                  >
+                    + Cal
+                  </Button>
+                )
+              }
             </div>
           </div>
-
-          {!hasScore && (
-            <Button
-              size="sm"
-              variant="outline"
-              onClick={() => window.open(gcalUrl, "_blank", "noopener,noreferrer")}
-              className="shrink-0 text-xs h-8 px-2 text-green-700 border-green-300 hover:bg-green-50 hover:border-green-400"
-              title="Add to Google Calendar"
-            >
-              + Cal
-            </Button>
-          )}
         </div>
       </CardContent>
     </Card>
