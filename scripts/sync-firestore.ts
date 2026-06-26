@@ -15,6 +15,7 @@ if (process.env.FIREBASE_SERVICE_ACCOUNT_BASE64) {
 
 initializeApp({ credential: cert(serviceAccount as Parameters<typeof cert>[0]) });
 const db = getFirestore();
+db.settings({ preferRest: true });
 
 async function sync() {
   const batch = db.batch();

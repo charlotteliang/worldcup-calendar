@@ -151,8 +151,8 @@ export const MATCHES: Match[] = [
   { id: "i2", date: "2026-06-16", time: "12:00", homeTeam: IRQ, awayTeam: NOR, homeScore: 1, awayScore: 4, group: "I", stage: "Group Stage", venue: "Gillette Stadium", city: "Foxborough" },
   { id: "i3", date: "2026-06-22", time: "14:00", homeTeam: FRA, awayTeam: IRQ, homeScore: 3, awayScore: 0, group: "I", stage: "Group Stage", venue: "Lincoln Financial Field", city: "Philadelphia" },
   { id: "i4", date: "2026-06-22", time: "17:00", homeTeam: NOR, awayTeam: SEN, homeScore: 3, awayScore: 2, group: "I", stage: "Group Stage", venue: "MetLife Stadium", city: "East Rutherford" },
-  { id: "i5", date: "2026-06-26", time: "12:00", homeTeam: NOR, awayTeam: FRA, group: "I", stage: "Group Stage", venue: "Gillette Stadium", city: "Foxborough" },
-  { id: "i6", date: "2026-06-26", time: "12:00", homeTeam: SEN, awayTeam: IRQ, group: "I", stage: "Group Stage", venue: "BMO Field", city: "Toronto" },
+  { id: "i5", date: "2026-06-26", time: "12:00", homeTeam: NOR, awayTeam: FRA, homeScore: 1, awayScore: 3, group: "I", stage: "Group Stage", venue: "Gillette Stadium", city: "Foxborough" },
+  { id: "i6", date: "2026-06-26", time: "12:00", homeTeam: SEN, awayTeam: IRQ, homeScore: 4, awayScore: 0, group: "I", stage: "Group Stage", venue: "BMO Field", city: "Toronto" },
 
   // ── GROUP J: Argentina · Algeria · Austria · Jordan ──
   { id: "j1", date: "2026-06-16", time: "15:00", homeTeam: ARG, awayTeam: ALG, homeScore: 3, awayScore: 0, group: "J", stage: "Group Stage", venue: "Arrowhead Stadium", city: "Kansas City" },
@@ -186,8 +186,8 @@ export const MATCHES: Match[] = [
   { id: "r32-3",  date: "2026-06-29", time: "13:30", homeTeam: GER, awayTeam: { name: "3rd (A/B/C/D/F)", flag: "🏳️", code: "TBD" }, stage: "Round of 32", venue: "Gillette Stadium", city: "Foxborough" },
   { id: "r32-4",  date: "2026-06-29", time: "18:00", homeTeam: NED, awayTeam: MAR, stage: "Round of 32", venue: "Estadio BBVA", city: "Monterrey" },
   // Jun 30
-  { id: "r32-5",  date: "2026-06-30", time: "10:00", homeTeam: CIV, awayTeam: { name: "2nd Group I", flag: "🏳️", code: "TBD" }, stage: "Round of 32", venue: "AT&T Stadium", city: "Arlington" },
-  { id: "r32-6",  date: "2026-06-30", time: "14:00", homeTeam: { name: "1st Group I", flag: "🏳️", code: "TBD" }, awayTeam: { name: "3rd (C/D/F/G/H)", flag: "🏳️", code: "TBD" }, stage: "Round of 32", venue: "MetLife Stadium", city: "East Rutherford" },
+  { id: "r32-5",  date: "2026-06-30", time: "10:00", homeTeam: CIV, awayTeam: NOR, stage: "Round of 32", venue: "AT&T Stadium", city: "Arlington" },
+  { id: "r32-6",  date: "2026-06-30", time: "14:00", homeTeam: FRA, awayTeam: { name: "3rd (C/D/F/G/H)", flag: "🏳️", code: "TBD" }, stage: "Round of 32", venue: "MetLife Stadium", city: "East Rutherford" },
   { id: "r32-7",  date: "2026-06-30", time: "18:00", homeTeam: MEX, awayTeam: { name: "3rd (C/E/F/H/I)", flag: "🏳️", code: "TBD" }, stage: "Round of 32", venue: "Estadio Azteca", city: "Mexico City" },
   // Jul 1
   { id: "r32-8",  date: "2026-07-01", time: "09:00", homeTeam: { name: "1st Group L", flag: "🏳️", code: "TBD" }, awayTeam: { name: "3rd (E/H/I/J/K)", flag: "🏳️", code: "TBD" }, stage: "Round of 32", venue: "Mercedes-Benz Stadium", city: "Atlanta" },
