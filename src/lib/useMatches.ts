@@ -9,12 +9,8 @@ type FirestoreMatchDoc = {
   id: string;
   date: string;
   time: string;
-  homeTeamName: string;
-  homeTeamFlag: string;
-  homeTeamCode: string;
-  awayTeamName: string;
-  awayTeamFlag: string;
-  awayTeamCode: string;
+  homeTeam: { name: string; flag: string; code: string };
+  awayTeam: { name: string; flag: string; code: string };
   homeScore?: number;
   awayScore?: number;
   group?: string;
@@ -28,8 +24,8 @@ function docToMatch(data: FirestoreMatchDoc): Match {
     id: data.id,
     date: data.date,
     time: data.time,
-    homeTeam: { name: data.homeTeamName, flag: data.homeTeamFlag, code: data.homeTeamCode },
-    awayTeam: { name: data.awayTeamName, flag: data.awayTeamFlag, code: data.awayTeamCode },
+    homeTeam: data.homeTeam,
+    awayTeam: data.awayTeam,
     homeScore: data.homeScore,
     awayScore: data.awayScore,
     group: data.group,
@@ -44,12 +40,17 @@ export function useMatches() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getDocs(collection(db, "matches")).then((snap) => {
-      const data = snap.docs.map((d) => docToMatch(d.data() as FirestoreMatchDoc));
-      data.sort((a, b) => a.date.localeCompare(b.date) || a.time.localeCompare(b.time));
-      setMatches(data);
-      setLoading(false);
-    });
+    getDocs(collection(db, "matches"))
+      .then((snap) => {
+        const data = snap.docs.map((d) => docToMatch(d.data() as FirestoreMatchDoc));
+        data.sort((a, b) => a.date.localeCompare(b.date) || a.time.localeCompare(b.time));
+        setMatches(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Firestore fetch failed:", err);
+        setLoading(false);
+      });
   }, []);
 
   return { matches, loading };
