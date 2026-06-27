@@ -119,7 +119,10 @@ export default function WeekCalendar() {
         {(["calendar", "groups"] as const).map((tab) => (
           <button
             key={tab}
-            onClick={() => setActiveTab(tab)}
+            onClick={() => {
+              setActiveTab(tab);
+              if (tab === "calendar") window.history.replaceState(null, "", "/");
+            }}
             className={`px-4 py-2 text-sm font-medium capitalize transition-colors border-b-2 -mb-px ${
               activeTab === tab
                 ? "border-green-600 text-green-700"
