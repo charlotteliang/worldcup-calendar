@@ -1,4 +1,4 @@
-import { MATCHES } from "@/data/matches";
+import type { Match } from "@/data/matches";
 
 export const GROUPS = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"] as const;
 export type Group = (typeof GROUPS)[number];
@@ -17,10 +17,10 @@ export interface TeamStanding {
   points: number;
 }
 
-export function getGroupStandings(group: string): TeamStanding[] {
+export function getGroupStandings(group: string, matches: Match[]): TeamStanding[] {
   const teamMap = new Map<string, TeamStanding>();
 
-  for (const m of MATCHES) {
+  for (const m of matches) {
     if (m.group !== group || m.stage !== "Group Stage") continue;
 
     for (const t of [m.homeTeam, m.awayTeam]) {

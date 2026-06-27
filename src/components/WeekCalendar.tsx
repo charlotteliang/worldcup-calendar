@@ -129,7 +129,7 @@ export default function WeekCalendar() {
         ))}
       </div>
 
-      {activeTab === "groups" && <GroupsView activeGroup={activeGroup} />}
+      {activeTab === "groups" && <GroupsView activeGroup={activeGroup} matches={matches} />}
 
       {activeTab === "calendar" && (
         <>

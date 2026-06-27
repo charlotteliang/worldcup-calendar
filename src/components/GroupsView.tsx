@@ -3,8 +3,9 @@
 import { useEffect, useRef } from "react";
 import { GROUPS, getGroupStandings } from "@/lib/standings";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import type { Match } from "@/data/matches";
 
-function GroupCard({ group, isActive }: { group: string; isActive: boolean }) {
+function GroupCard({ group, isActive, matches }: { group: string; isActive: boolean; matches: Match[] }) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -13,7 +14,7 @@ function GroupCard({ group, isActive }: { group: string; isActive: boolean }) {
     }
   }, [isActive]);
 
-  const standings = getGroupStandings(group);
+  const standings = getGroupStandings(group, matches);
 
   return (
     <div ref={ref} id={`group-${group}`}>
@@ -66,13 +67,13 @@ function GroupCard({ group, isActive }: { group: string; isActive: boolean }) {
   );
 }
 
-export default function GroupsView({ activeGroup }: { activeGroup: string | null }) {
+export default function GroupsView({ activeGroup, matches }: { activeGroup: string | null; matches: Match[] }) {
   return (
     <div>
       <p className="text-xs text-slate-400 mb-3">Top 2 teams advance automatically · 8 best 3rd-place teams also advance</p>
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
         {GROUPS.map((g) => (
-          <GroupCard key={g} group={g} isActive={activeGroup === g} />
+          <GroupCard key={g} group={g} isActive={activeGroup === g} matches={matches} />
         ))}
       </div>
     </div>
