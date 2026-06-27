@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FIFA World Cup 2026 Calendar
 
-## Getting Started
+Weekly match schedule for the 2026 FIFA World Cup with live group standings, country flags, and Google Calendar integration.
 
-First, run the development server:
+**Live site:** https://wc2026-calendar-app.web.app
+
+## Stack
+
+- [Next.js](https://nextjs.org) — frontend
+- [Firebase Hosting](https://firebase.google.com/docs/hosting) — deployment
+- [Firestore](https://firebase.google.com/docs/firestore) — match data and scores (single source of truth)
+- GitHub Actions — auto-deploys on push to `main`
+
+## Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Data
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Match data lives in Firestore. A daily cloud routine (5 am PT) fetches the latest scores and confirmed teams and patches Firestore directly — no code commits needed.
 
-## Learn More
+To re-seed Firestore from scratch:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npx tsx scripts/seed-firestore.ts
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To manually patch a match:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+node scripts/update-match.mjs '{"g5":{"homeScore":1,"awayScore":1}}'
+```
