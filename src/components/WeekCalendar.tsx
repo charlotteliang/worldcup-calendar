@@ -88,12 +88,14 @@ export default function WeekCalendar() {
   }
 
   useEffect(() => {
-    function handlePopState(e: PopStateEvent) {
-      if (e.state?.tab === "groups") {
+    function handlePopState() {
+      const group = new URLSearchParams(window.location.search).get("group");
+      if (group) {
         setActiveTab("groups");
-        setActiveGroup(e.state.group ?? null);
+        setActiveGroup(group);
       } else {
         setActiveTab("calendar");
+        setActiveGroup(null);
       }
     }
     window.addEventListener("popstate", handlePopState);
@@ -103,7 +105,7 @@ export default function WeekCalendar() {
   function handleGroupClick(group: string) {
     setActiveGroup(group);
     setActiveTab("groups");
-    history.pushState({ tab: "groups", group }, "");
+    window.history.pushState(null, "", `?group=${group}`);
   }
 
   if (loading) {
