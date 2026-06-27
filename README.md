@@ -22,16 +22,4 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Data
 
-Match data lives in Firestore. A daily cloud routine (5 am PT) fetches the latest scores and confirmed teams and patches Firestore directly — no code commits needed.
-
-To re-seed Firestore from scratch:
-
-```bash
-npx tsx scripts/seed-firestore.ts
-```
-
-To manually patch a match:
-
-```bash
-node scripts/update-match.mjs '{"g5":{"homeScore":1,"awayScore":1}}'
-```
+Match data and scores are stored in Firestore. A daily routine automatically fetches the latest results and updates Firestore — no manual intervention needed.
