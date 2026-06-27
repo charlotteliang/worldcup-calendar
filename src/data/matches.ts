@@ -135,16 +135,16 @@ export const MATCHES: Match[] = [
   { id: "g2", date: "2026-06-15", time: "12:00", homeTeam: IRN, awayTeam: NZL, homeScore: 2, awayScore: 2, group: "G", stage: "Group Stage", venue: "SoFi Stadium", city: "Los Angeles" },
   { id: "g3", date: "2026-06-21", time: "12:00", homeTeam: BEL, awayTeam: IRN, homeScore: 0, awayScore: 0, group: "G", stage: "Group Stage", venue: "SoFi Stadium", city: "Los Angeles" },
   { id: "g4", date: "2026-06-21", time: "18:00", homeTeam: NZL, awayTeam: EGY, homeScore: 1, awayScore: 3, group: "G", stage: "Group Stage", venue: "BC Place", city: "Vancouver" },
-  { id: "g5", date: "2026-06-26", time: "20:00", homeTeam: EGY, awayTeam: IRN, group: "G", stage: "Group Stage", venue: "Lumen Field", city: "Seattle" },
-  { id: "g6", date: "2026-06-26", time: "20:00", homeTeam: NZL, awayTeam: BEL, group: "G", stage: "Group Stage", venue: "BC Place", city: "Vancouver" },
+  { id: "g5", date: "2026-06-26", time: "20:00", homeTeam: EGY, awayTeam: IRN, homeScore: 1, awayScore: 1, group: "G", stage: "Group Stage", venue: "Lumen Field", city: "Seattle" },
+  { id: "g6", date: "2026-06-26", time: "20:00", homeTeam: NZL, awayTeam: BEL, homeScore: 1, awayScore: 5, group: "G", stage: "Group Stage", venue: "BC Place", city: "Vancouver" },
 
   // ── GROUP H: Spain · Cape Verde · Saudi Arabia · Uruguay ──
   { id: "h1", date: "2026-06-15", time: "15:00", homeTeam: ESP, awayTeam: CPV, homeScore: 0, awayScore: 0, group: "H", stage: "Group Stage", venue: "Mercedes-Benz Stadium", city: "Atlanta" },
   { id: "h2", date: "2026-06-15", time: "18:00", homeTeam: SAU, awayTeam: URU, homeScore: 1, awayScore: 1, group: "H", stage: "Group Stage", venue: "Hard Rock Stadium", city: "Miami" },
   { id: "h3", date: "2026-06-21", time: "09:00", homeTeam: ESP, awayTeam: SAU, homeScore: 4, awayScore: 0, group: "H", stage: "Group Stage", venue: "Mercedes-Benz Stadium", city: "Atlanta" },
   { id: "h4", date: "2026-06-21", time: "15:00", homeTeam: URU, awayTeam: CPV, homeScore: 2, awayScore: 2, group: "H", stage: "Group Stage", venue: "Hard Rock Stadium", city: "Miami" },
-  { id: "h5", date: "2026-06-26", time: "17:00", homeTeam: CPV, awayTeam: SAU, group: "H", stage: "Group Stage", venue: "NRG Stadium", city: "Houston" },
-  { id: "h6", date: "2026-06-26", time: "17:00", homeTeam: URU, awayTeam: ESP, group: "H", stage: "Group Stage", venue: "Estadio Akron", city: "Guadalajara" },
+  { id: "h5", date: "2026-06-26", time: "17:00", homeTeam: CPV, awayTeam: SAU, homeScore: 0, awayScore: 0, group: "H", stage: "Group Stage", venue: "NRG Stadium", city: "Houston" },
+  { id: "h6", date: "2026-06-26", time: "17:00", homeTeam: URU, awayTeam: ESP, homeScore: 0, awayScore: 1, group: "H", stage: "Group Stage", venue: "Estadio Akron", city: "Guadalajara" },
 
   // ── GROUP I: France · Senegal · Iraq · Norway ──
   { id: "i1", date: "2026-06-16", time: "09:00", homeTeam: FRA, awayTeam: SEN, homeScore: 3, awayScore: 1, group: "I", stage: "Group Stage", venue: "MetLife Stadium", city: "East Rutherford" },
@@ -191,15 +191,15 @@ export const MATCHES: Match[] = [
   { id: "r32-7",  date: "2026-06-30", time: "18:00", homeTeam: MEX, awayTeam: { name: "3rd (C/E/F/H/I)", flag: "🏳️", code: "TBD" }, stage: "Round of 32", venue: "Estadio Azteca", city: "Mexico City" },
   // Jul 1
   { id: "r32-8",  date: "2026-07-01", time: "09:00", homeTeam: { name: "1st Group L", flag: "🏳️", code: "TBD" }, awayTeam: { name: "3rd (E/H/I/J/K)", flag: "🏳️", code: "TBD" }, stage: "Round of 32", venue: "Mercedes-Benz Stadium", city: "Atlanta" },
-  { id: "r32-9",  date: "2026-07-01", time: "13:00", homeTeam: { name: "1st Group G", flag: "🏳️", code: "TBD" }, awayTeam: { name: "3rd (A/E/H/I/J)", flag: "🏳️", code: "TBD" }, stage: "Round of 32", venue: "Lumen Field", city: "Seattle" },
+  { id: "r32-9",  date: "2026-07-01", time: "13:00", homeTeam: BEL, awayTeam: { name: "3rd (A/E/H/I/J)", flag: "🏳️", code: "TBD" }, stage: "Round of 32", venue: "Lumen Field", city: "Seattle" },
   { id: "r32-10", date: "2026-07-01", time: "17:00", homeTeam: USA, awayTeam: { name: "3rd (B/E/F/I/J)", flag: "🏳️", code: "TBD" }, stage: "Round of 32", venue: "Levi's Stadium", city: "Santa Clara" },
   // Jul 2
-  { id: "r32-11", date: "2026-07-02", time: "12:00", homeTeam: { name: "1st Group H", flag: "🏳️", code: "TBD" }, awayTeam: { name: "2nd Group J", flag: "🏳️", code: "TBD" }, stage: "Round of 32", venue: "SoFi Stadium", city: "Los Angeles" },
+  { id: "r32-11", date: "2026-07-02", time: "12:00", homeTeam: ESP, awayTeam: { name: "2nd Group J", flag: "🏳️", code: "TBD" }, stage: "Round of 32", venue: "SoFi Stadium", city: "Los Angeles" },
   { id: "r32-12", date: "2026-07-02", time: "16:00", homeTeam: { name: "2nd Group K", flag: "🏳️", code: "TBD" }, awayTeam: { name: "2nd Group L", flag: "🏳️", code: "TBD" }, stage: "Round of 32", venue: "BMO Field", city: "Toronto" },
   { id: "r32-13", date: "2026-07-02", time: "20:00", homeTeam: SUI, awayTeam: { name: "3rd (E/F/G/I/J)", flag: "🏳️", code: "TBD" }, stage: "Round of 32", venue: "BC Place", city: "Vancouver" },
   // Jul 3
-  { id: "r32-14", date: "2026-07-03", time: "11:00", homeTeam: AUS, awayTeam: { name: "2nd Group G", flag: "🏳️", code: "TBD" }, stage: "Round of 32", venue: "AT&T Stadium", city: "Arlington" },
-  { id: "r32-15", date: "2026-07-03", time: "15:00", homeTeam: ARG, awayTeam: { name: "2nd Group H", flag: "🏳️", code: "TBD" }, stage: "Round of 32", venue: "Hard Rock Stadium", city: "Miami" },
+  { id: "r32-14", date: "2026-07-03", time: "11:00", homeTeam: AUS, awayTeam: EGY, stage: "Round of 32", venue: "AT&T Stadium", city: "Arlington" },
+  { id: "r32-15", date: "2026-07-03", time: "15:00", homeTeam: ARG, awayTeam: CPV, stage: "Round of 32", venue: "Hard Rock Stadium", city: "Miami" },
   { id: "r32-16", date: "2026-07-03", time: "18:30", homeTeam: { name: "1st Group K", flag: "🏳️", code: "TBD" }, awayTeam: { name: "3rd (D/E/I/J/L)", flag: "🏳️", code: "TBD" }, stage: "Round of 32", venue: "Arrowhead Stadium", city: "Kansas City" },
 
   // ── ROUND OF 16 ──
