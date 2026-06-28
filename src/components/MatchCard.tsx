@@ -7,6 +7,14 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
+const CITY_STATE: Record<string, string> = {
+  Arlington: "TX", Atlanta: "GA", "East Rutherford": "NJ", Foxborough: "MA",
+  Houston: "TX", "Kansas City": "MO", "Los Angeles": "CA", Miami: "FL",
+  Philadelphia: "PA", "Santa Clara": "CA", Seattle: "WA",
+  Toronto: "ON", Vancouver: "BC",
+  Guadalajara: "Mexico", "Mexico City": "Mexico", Monterrey: "Mexico",
+};
+
 const stageColors: Record<string, string> = {
   "Group Stage": "bg-slate-100 text-slate-700",
   "Round of 32": "bg-blue-100 text-blue-700",
@@ -65,7 +73,7 @@ export default function MatchCard({ match, tz, onGroupClick }: { match: Match; t
             {/* Meta */}
             <div className="flex items-center gap-1.5 mt-1 flex-wrap">
               <span className="text-xs text-slate-500">
-                {displayTime} {tz.abbr}{nextDay ? " +1d" : ""} · {match.city}
+                {displayTime} {tz.abbr}{nextDay ? " +1d" : ""} · {match.city}{CITY_STATE[match.city] ? `, ${CITY_STATE[match.city]}` : ""}
               </span>
               {match.group && onGroupClick ? (
                 <button
