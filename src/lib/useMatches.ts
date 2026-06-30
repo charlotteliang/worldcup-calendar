@@ -13,6 +13,8 @@ type FirestoreMatchDoc = {
   awayTeam: { name: string; flag: string; code: string };
   homeScore?: number;
   awayScore?: number;
+  penaltyHomeScore?: number;
+  penaltyAwayScore?: number;
   group?: string;
   stage: Match["stage"];
   venue: string;
@@ -28,6 +30,8 @@ function docToMatch(data: FirestoreMatchDoc): Match {
     awayTeam: data.awayTeam,
     homeScore: data.homeScore,
     awayScore: data.awayScore,
+    penaltyHomeScore: data.penaltyHomeScore,
+    penaltyAwayScore: data.penaltyAwayScore,
     group: data.group,
     stage: data.stage,
     venue: data.venue,

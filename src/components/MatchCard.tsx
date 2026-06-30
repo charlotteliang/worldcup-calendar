@@ -25,10 +25,10 @@ const stageColors: Record<string, string> = {
   Final: "bg-red-100 text-red-700",
 };
 
-function ScorePill({ home, away }: { home: number; away: number }) {
+function ScorePill({ home, away, penHome, penAway }: { home: number; away: number; penHome?: number; penAway?: number }) {
   return (
     <span className="inline-flex items-center gap-1 bg-slate-800 text-white text-xs font-bold rounded px-1.5 py-0.5">
-      {home}–{away}
+      {home}–{away}{penHome !== undefined && penAway !== undefined ? ` (${penHome}–${penAway}p)` : ""}
     </span>
   );
 }
@@ -36,6 +36,16 @@ function ScorePill({ home, away }: { home: number; away: number }) {
 export default function MatchCard({ match, tz, onGroupClick }: { match: Match; tz: Timezone; onGroupClick?: (group: string) => void }) {
   const isTBD = match.homeTeam.code === "TBD" && match.awayTeam.code === "TBD";
   const hasScore = match.homeScore !== undefined && match.awayScore !== undefined;
+  const hasPenalties = hasScore && match.homeScore === match.awayScore
+    && match.penaltyHomeScore !== undefined && match.penaltyAwayScore !== undefined;
+  const homeWins = hasScore && (
+    match.homeScore! > match.awayScore! ||
+    (hasPenalties && match.penaltyHomeScore! > match.penaltyAwayScore!)
+  );
+  const awayWins = hasScore && (
+    match.awayScore! > match.homeScore! ||
+    (hasPenalties && match.penaltyAwayScore! > match.penaltyHomeScore!)
+  );
   const { time: displayTime, nextDay } = convertFromPT(match.time, tz);
   const gcalUrl = buildGoogleCalendarUrl(match);
 
@@ -59,14 +69,14 @@ export default function MatchCard({ match, tz, onGroupClick }: { match: Match; t
             {/* Home team */}
             <div className="flex items-center gap-1.5">
               <span className="text-lg leading-none shrink-0">{match.homeTeam.flag}</span>
-              <span className={`text-sm font-semibold truncate ${hasScore && match.homeScore! > match.awayScore! ? "text-green-700" : "text-slate-900"}`}>
+              <span className={`text-sm font-semibold truncate ${homeWins ? "text-green-700" : "text-slate-900"}`}>
                 {match.homeTeam.name}
               </span>
             </div>
             {/* Away team */}
             <div className="flex items-center gap-1.5 mt-0.5">
               <span className="text-lg leading-none shrink-0">{match.awayTeam.flag}</span>
-              <span className={`text-sm font-semibold truncate ${hasScore && match.awayScore! > match.homeScore! ? "text-green-700" : "text-slate-900"}`}>
+              <span className={`text-sm font-semibold truncate ${awayWins ? "text-green-700" : "text-slate-900"}`}>
                 {match.awayTeam.name}
               </span>
             </div>
@@ -88,7 +98,7 @@ export default function MatchCard({ match, tz, onGroupClick }: { match: Match; t
                 </Badge>
               )}
               {hasScore
-                ? <ScorePill home={match.homeScore!} away={match.awayScore!} />
+                ? <ScorePill home={match.homeScore!} away={match.awayScore!} penHome={match.penaltyHomeScore} penAway={match.penaltyAwayScore} />
                 : (
                   <Button
                     size="sm"

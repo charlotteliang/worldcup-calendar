@@ -12,6 +12,8 @@ export interface Match {
   awayTeam: Country;
   homeScore?: number;
   awayScore?: number;
+  penaltyHomeScore?: number;
+  penaltyAwayScore?: number;
   group?: string;
   stage: "Group Stage" | "Round of 32" | "Round of 16" | "Quarter-final" | "Semi-final" | "Third Place" | "Final";
   venue: string;
